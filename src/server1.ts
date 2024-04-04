@@ -38,6 +38,21 @@ app.use(async (req: ExtendedRequest, res: Response, next: NextFunction)  => {
     }
 });
 
+app.use((req: ExtendedRequest, res: Response, next: NextFunction) => {
+    const db = req.db;
+    if (db) {
+      db.release();
+    }
+    next();
+  });
+
+  app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    console.error(err.stack);
+    res
+      .status(500)
+      .send("*** Erro Interno no Servidor! Por favor Verifique seu Servidor ***");
+  });
+
 // testando uma rota GET em escolas do banco de dados
 // app.get('/escolas', async (req: ExtendedRequest, res: Response) => {
 //     try {
