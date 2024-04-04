@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "ts-node src/server1.ts",
     "dev": "nodemon src/server1.ts",
     "test": "nodemon src/database/index.ts"
   },
