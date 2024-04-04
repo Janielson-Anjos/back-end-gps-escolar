@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import db from '../database';
 import { log } from "console";
-import { Escola } from "../models/Escola";
 import EscolaModel from "../models/escolaModel";
 
 
